@@ -7,5 +7,5 @@ resources:
   - dashboard
   - toolbox
   - direct-mount
-  - monitoring
+  # - monitoring
   - snapshot-controller
