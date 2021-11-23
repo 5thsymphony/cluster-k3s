@@ -1,11 +1,11 @@
 ---
 collections:
   - name: community.general
-    version: 4.0.2
+    version: 4.1.0
   - name: community.sops
     version: 1.2.0
   - name: devsec.hardening
-    version: 7.12.0
+    version: 7.13.2
 roles:
   - src: xanmanning.k3s
     version: v2.11.1
