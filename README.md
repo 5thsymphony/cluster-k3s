@@ -193,6 +193,12 @@ In order to use Terraform and `cert-manager` with the Cloudflare DNS challenge y
 
 :round_pushpin: Here we will be running a Ansible Playbook to prepare Ubuntu for running a Kubernetes cluster.
 
+:round_pushpin: If you have used your drives for a ceph cluster before you must clear them before beginning. This can be achieved by running `task ansible:playbook:rook-ceph-nuke`
+
+:round_pushpin: If you are nuking the drives make sure rook_devices is set in ansible inventory hosts.
+
+:round_pushpin: If you are redeploying a cluster after destroying one you need to restart the servers and delete the `provision/kubeconfig` file, see instructions below to recreate this once the new cluster is up. Make sure to update the file on the UDMP if you use one. See note below on CoreDNS.
+
 1. Ensure you are able to SSH into you nodes from your workstation with using your private ssh key. This is how Ansible is able to connect to your remote nodes.
 
 2. Install the deps by running `task ansible:deps`
@@ -227,6 +233,10 @@ kubectl --kubeconfig=./provision/kubeconfig get nodes
 # k8s-0          Ready    control-plane,master      4d20h   v1.21.5+k3s1
 # k8s-1          Ready    worker                    4d20h   v1.21.5+k3s1
 ```
+
+:round_pushpin: If you get a certificate error then use `task cluster:kubeconfig` to download a new kubeconfig file and then move it to the `provision` folder (yes you can overwrite the old one if you didn't delete it).
+
+:round_pushpin: If you are using a Unifi UDMP then you need to ensure you have CoreDNS installed on it and then you need to copy `provision/kubeconfig` to `/mnt/data/coredns`.
 
 ### :small_blue_diamond:&nbsp; GitOps with Flux
 
