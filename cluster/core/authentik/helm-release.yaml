@@ -53,15 +53,13 @@ spec:
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-      hosts:
-      - host: "id.${SECRET_DOMAIN}"
-        paths:
-        - path: "/"
-          pathType: Prefix
+      host:
+          name: "id.${SECRET_DOMAIN}"
+          path: "/"
       tls:
       - hosts:
         - "id.${SECRET_DOMAIN}"
-      secretName: "authentik-tls"
+        secretName: "authentik-tls"
     postgresql:
       enabled: true
       postgresqlUsername: authentik
