@@ -4,5 +4,6 @@ resources:
   - authentik
   - default
   - kube-system
+  - mattermost
   - networking
   - system-upgrade

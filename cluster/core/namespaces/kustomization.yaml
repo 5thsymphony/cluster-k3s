@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - authentik.yaml
   - cert-manager.yaml
+  - mattermost.yaml
   - metallb-system.yaml
   - networking.yaml
   - rook-ceph.yaml
