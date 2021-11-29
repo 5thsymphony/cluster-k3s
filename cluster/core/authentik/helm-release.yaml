@@ -53,9 +53,11 @@ spec:
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-      host:
-          name: "id.${SECRET_DOMAIN}"
-          path: "/"
+      hosts:
+      - host: "id.${SECRET_DOMAIN}"
+        paths:
+        - path: "/"
+          pathType: Prefix
       tls:
       - hosts:
         - "id.${SECRET_DOMAIN}"
