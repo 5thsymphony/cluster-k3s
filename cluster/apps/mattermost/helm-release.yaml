@@ -82,10 +82,7 @@ spec:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
       hosts:
-        - host: "mm.${SECRET_DOMAIN}"
-          paths:
-            - path: "/"
-              pathType: Prefix
+        - "mm.${SECRET_DOMAIN}"
       tls:
         - hosts:
             - "mm.${SECRET_DOMAIN}"
