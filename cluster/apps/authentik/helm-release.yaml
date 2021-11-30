@@ -59,6 +59,11 @@ spec:
       postgresqlUsername: authentik
       postgresqlDatabase: authentik
       postgresqlPassword: "${SECRET_AUTHENTIK_POSTGRES_PASSWORD}"
+      persistence:
+        enabled: true
+        storageClass: "ceph-block"
+        accessModes:
+          - ReadWriteOnce
     redis:
       enabled: true
     prometheus:
