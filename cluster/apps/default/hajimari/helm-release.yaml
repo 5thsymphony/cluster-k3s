@@ -113,6 +113,7 @@ spec:
         tls:
           - hosts:
               - "hajimari.${SECRET_DOMAIN}"
+              - "www.hajimari.${SECRET_DOMAIN}"
             secretName: "hajimari-tls"
     persistence:
       data:

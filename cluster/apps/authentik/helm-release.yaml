@@ -53,6 +53,7 @@ spec:
       tls:
         - hosts:
             - "id.${SECRET_DOMAIN}"
+            - "www.id.${SECRET_DOMAIN}"
           secretName: "authentik-tls"
     postgresql:
       enabled: true
