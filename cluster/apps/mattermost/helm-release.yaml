@@ -80,6 +80,9 @@ spec:
       ingressClassName: "traefik"
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
+        hajimari.io/appName: "mattermost"
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "web"
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
       hosts:
         - "mm.${SECRET_DOMAIN}"
