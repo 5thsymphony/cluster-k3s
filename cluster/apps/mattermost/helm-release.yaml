@@ -167,3 +167,9 @@ spec:
     ## You can add any config here, but need to respect the format: MM_<GROUPSECTION>_<SETTING>. ie: MM_SERVICESETTINGS_ENABLECOMMANDS: false
     config:
       MM_PLUGINSETTINGS_CLIENTDIRECTORY: "./client/plugins"
+    
+    configJSON:
+      ServiceSettings:
+        SiteURL: "https://mm.${SECRET_DOMAIN}"
+      TeamSettings:
+        SiteName: "Mattermost on ${SECRET_DOMAIN}"
