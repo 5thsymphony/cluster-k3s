@@ -67,6 +67,11 @@ spec:
           - ReadWriteOnce
     redis:
       enabled: true
+      persistence:
+        enabled: true
+        storageClass: "ceph-block"
+        accessModes:
+          - ReadWriteOnce
     prometheus:
       serviceMonitor:
         create: false
