@@ -6,5 +6,6 @@ resources:
   - mattermost.yaml
   - metallb-system.yaml
   - networking.yaml
+  - notifications.yaml
   - rook-ceph.yaml
   - storage.yaml

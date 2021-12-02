@@ -314,6 +314,40 @@ kubectl --kubeconfig=./provision/kubeconfig get pods -n flux-system
 
 :tada: **Congratulations** you have a Kubernetes cluster managed by Flux, your Git repository is driving the state of your cluster.
 
+### :mail:&nbsp; Configure E-mail Notifications
+
+Certain services (for example Authentik) almost require e-mail notifications, of course e-mail is an unencrypted protocol. We can setup ProtonMail to provide these in an end-to-end encrypted way.
+
+1. Get the name of your deployed pod.
+
+```sh
+kubectl get pods -n notifications
+```
+
+2. Run interactively on the pod (setup only).
+
+```sh
+kubectl exec --stdin --tty protonmail-bridge-deployment-<your-pod-info-here> -- /bin/bash
+```
+
+3. Once logged in, execute the init command.
+
+```sh
+bash /protonmail/entrypoint.sh init
+```
+
+4. You should now see the CLI for protonmail-bridge, authenticate with.
+
+```sh
+login
+```
+
+5. (optional) if you're like me and use split address mode, change mode and info are good for printing the details.
+
+6. Copy your SMTP server info (or IMAP, your choice).
+
+7. Delete the active pod so a new one gets created (which will properly fire up with your persisted settings)
+
 ### :cloud:&nbsp; Configure Cloudflare DNS with Terraform
 
 :round_pushpin: Review the Terraform scripts under `./terraform/cloudflare/` and make sure you understand what it's doing (no really review it). If your domain already has existing DNS records be sure to export those DNS settings before you continue. Ideally you can update the terraform script to manage DNS for all records if you so choose to.
