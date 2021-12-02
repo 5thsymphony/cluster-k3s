@@ -199,6 +199,8 @@ In order to use Terraform and `cert-manager` with the Cloudflare DNS challenge y
 
 :round_pushpin: If you are redeploying a cluster after destroying one you need to restart the servers and delete the `provision/kubeconfig` file, see instructions below to recreate this once the new cluster is up. Make sure to update the file on the UDMP if you use one. See note below on CoreDNS.
 
+:round_pushpin: Make sure to add the external DNS server to each of the nodes static IP configuration (using netplan for Ubuntu nodes).
+
 1. Ensure you are able to SSH into you nodes from your workstation with using your private ssh key. This is how Ansible is able to connect to your remote nodes.
 
 2. Install the deps by running `task ansible:deps`
