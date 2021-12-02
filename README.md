@@ -327,7 +327,7 @@ kubectl get pods -n notifications
 2. Run interactively on the pod (setup only).
 
 ```sh
-kubectl exec --stdin --tty protonmail-bridge-deployment-<your-pod-info-here> -- /bin/bash
+kubectl exec -n notifications --stdin --tty protonmail-bridge-deployment-<your-pod-info-here> -- /bin/bash
 ```
 
 3. Once logged in, execute the init command.
