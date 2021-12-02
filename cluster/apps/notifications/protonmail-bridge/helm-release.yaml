@@ -21,7 +21,7 @@ spec:
       # -- image repository
       repository: shenxn/protonmail-bridge
       # -- image tag
-      tag: 1.8.7-1
+      tag: 1.8.10-1
       # -- image pull policy
       pullPolicy: IfNotPresent
 
