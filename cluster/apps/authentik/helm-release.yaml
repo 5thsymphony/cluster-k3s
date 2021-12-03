@@ -32,13 +32,13 @@ spec:
         password: "${SECRET_AUTHENTIK_POSTGRES_PASSWORD}"
       redis:
         host: "authentik-redis-master"
-      # email:
-      #   host: "${SECRET_MAIL_HOST}"
-      #   port: 587
-      #   use_tls: true
-      #   username: "${SECRET_MAIL_USER}"
-      #   password: "${SECRET_MAIL_PASSWORD}"
-      #   from: "noreply@${SECRET_DOMAIN}"
+      email:
+        host: "${SECRET_MAIL_HOST}"
+        port: 25
+        use_tls: true
+        username: "${SECRET_MAIL_USER}"
+        password: "${SECRET_MAIL_PASSWORD}"
+        from: "noreply@${SECRET_DOMAIN}"
     ingress:
       enabled: true
       ingressClassName: "traefik"
