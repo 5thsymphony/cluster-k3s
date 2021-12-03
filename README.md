@@ -318,35 +318,31 @@ kubectl --kubeconfig=./provision/kubeconfig get pods -n flux-system
 
 Certain services (for example Authentik) almost require e-mail notifications, of course e-mail is an unencrypted protocol. We can setup ProtonMail to provide these in an end-to-end encrypted way.
 
-1. Get the name of your deployed pod.
+1. Run interactively on the pod (setup only).
 
 ```sh
-kubectl get pods -n notifications
+kubectl exec -n notifications --stdin --tty deployment.apps/protonmail-bridge -- /bin/bash
 ```
 
-2. Run interactively on the pod (setup only).
+2. Once logged in, execute the init command.
 
-```sh
-kubectl exec -n notifications --stdin --tty protonmail-bridge-deployment-<your-pod-info-here> -- /bin/bash
-```
-
-3. Once logged in, execute the init command.
+:pushpin: There is an issue where you need to run ```top``` to find out the running process_id for `protonmail_bridge` process. You then need to kill this process with ```kill process_id``` before the below commant will work.
 
 ```sh
 bash /protonmail/entrypoint.sh init
 ```
 
-4. You should now see the CLI for protonmail-bridge, authenticate with.
+3. You should now see the CLI for protonmail-bridge, authenticate with.
 
 ```sh
 login
 ```
 
-5. (optional) if you're like me and use split address mode, change mode and info are good for printing the details.
+4. (optional) if you're like me and use split address mode, change mode and info are good for printing the details.
 
-6. Copy your SMTP server info (or IMAP, your choice).
+5. Copy your SMTP server info (or IMAP, your choice).
 
-7. Delete the active pod so a new one gets created (which will properly fire up with your persisted settings)
+6. Delete the active pod so a new one gets created (which will properly fire up with your persisted settings)
 
 ### :cloud:&nbsp; Configure Cloudflare DNS with Terraform
 
