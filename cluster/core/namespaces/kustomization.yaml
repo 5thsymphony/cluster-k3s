@@ -9,3 +9,4 @@ resources:
   - notifications.yaml
   - rook-ceph.yaml
   - storage.yaml
+  - vaultwarden.yaml

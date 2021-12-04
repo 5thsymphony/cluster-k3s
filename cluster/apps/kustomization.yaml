@@ -8,3 +8,4 @@ resources:
   - notifications
   - networking
   - system-upgrade
+  - vaultwarden
