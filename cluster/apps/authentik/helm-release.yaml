@@ -33,7 +33,7 @@ spec:
       redis:
         host: "authentik-redis-master"
       email:
-        host: "${SECRET_MAIL_HOST}"
+        host: "protonmail-bridge.notifications.svc.cluster.local"
         port: 25
         use_tls: true
         username: "${SECRET_MAIL_USER}"
