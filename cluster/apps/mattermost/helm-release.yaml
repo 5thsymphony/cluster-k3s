@@ -10,7 +10,7 @@ spec:
     spec:
       # renovate: registryUrl=https://helm.mattermost.com
       chart: mattermost-team-edition
-      version: 6.1.0
+      version: 6.2.1
       sourceRef:
         kind: HelmRepository
         name: mattermost-charts
@@ -24,7 +24,7 @@ spec:
     # Declare variables to be passed into your templates.
     image:
       repository: mattermost/mattermost-team-edition
-      tag: 6.1.0@sha256:3893b46939331ef7c3d02661f9040c2d8cf02970a19e839194dcd1041cc626f1
+      tag: 6.2.1@sha256:e22bbbf01980a99fac406741cbaed88be099b0c245950d22af4c2612af2adc2f
       imagePullPolicy: IfNotPresent
 
     initContainerImage:
