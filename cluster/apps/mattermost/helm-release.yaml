@@ -24,7 +24,7 @@ spec:
     # Declare variables to be passed into your templates.
     image:
       repository: mattermost/mattermost-team-edition
-      tag: 6.3.3@sha256:1eedc1729358ca3f63792df8358d12b388eeb5f66c9d360f2825a1623ddb4b56
+      tag: 6.7.2@sha256:6432edb09f68827e5be73ca193dc95b620c72698b927a0359c62d541ebe82921
       imagePullPolicy: IfNotPresent
 
     initContainerImage:
